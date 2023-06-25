@@ -14,11 +14,13 @@ const Restaurante = ({ restaurante }: RestauranteProps) => {
   const [pratos, setPratos] = useState<IPrato[]>([]);
   useEffect(() => {
     axios
-      .get<IPaginacao<IPrato>>("http://localhost:8000/api/v1/pratos/")
+      .get<IPrato[]>(
+        `http://0.0.0.0:8000/api/v1/restaurantes/${restaurante.id}/pratos/`
+      )
       .then((resposta) => {
-        setPratos(resposta.data.results);
+        setPratos(resposta.data);
       });
-  }, []);
+  }, [restaurante.id]);
 
   return (
     <section className={estilos.Restaurante}>
@@ -26,7 +28,7 @@ const Restaurante = ({ restaurante }: RestauranteProps) => {
         <h2>{restaurante.nome}</h2>
       </div>
       <div>
-        {restaurante.pratos?.map((item) => (
+        {pratos?.map((item) => (
           <Prato prato={item} key={item.id} />
         ))}
       </div>
