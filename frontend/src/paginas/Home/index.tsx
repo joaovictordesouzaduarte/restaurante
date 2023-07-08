@@ -1,48 +1,61 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Banner from '../../componentes/Banner';
-import NavBar from '../../componentes/NavBar';
-import Rodape from '../../componentes/Rodape';
-import estilos from './Home.module.scss';
+import React from "react";
+import { Link } from "react-router-dom";
+import Banner from "../../componentes/Banner";
+import NavBar from "../../componentes/NavBar";
+import Rodape from "../../componentes/Rodape";
+import estilos from "./Home.module.scss";
+import { Stack, Typography } from "@mui/material";
 
 function App() {
   return (
     <>
       <NavBar />
       <Banner />
-      <div className={estilos.MiniBanners}>
+      <Stack direction="row" className={estilos.MiniBanners}>
         <img src="/imagens/cozinhar_01.jpg" alt="Um prato conceitual" />
-        <div className={estilos.CardCentral}>
-          <h2>A melhor rede de restaurantes!</h2>
-          <div>
-            <p>seja um parceiro agora:</p>
-            <p>ligue para <a href="callto:99999999999">(99) 99999-999</a></p>
-          </div>
-        </div>
+        <Stack className={estilos.CardCentral}>
+          <Typography variant="h4">A melhor rede de restaurantes!</Typography>
+          <Stack>
+            <Typography paragraph>seja um parceiro agora:</Typography>
+            <Typography paragraph>
+              ligue para <a href="callto:99999999999">(99) 99999-999</a>
+            </Typography>
+          </Stack>
+        </Stack>
         <img src="/imagens/cozinhar_02.jpg" alt="Um hambúrguer desconstruído" />
-      </div>
-      <div className={estilos.Categorias}>
-        <div className={estilos.TipoDePrato}>
-          <img src="/imagens/cafedamanha.png" alt="Café da manhã" />
-          <h4>Café da manhã</h4>
-        </div>
-        <div className={estilos.TipoDePrato}>
-          <img src="/imagens/almoco.png" alt="Almoço" />
-          <h4>Almoço</h4>
-        </div>
-        <div className={estilos.TipoDePrato}>
-          <img src="/imagens/jantar.png" alt="Jantar" />
-          <h4>Jantar</h4>
-        </div>
-        <div className={estilos.TipoDePrato}>
-          <img src="/imagens/sobremesa.png" alt="Sobremesas" />
-          <h4>Sobremesas</h4>
-        </div>
-      </div>
-      <div className={estilos.Links}>
+      </Stack>
+      <Stack direction="row" className={estilos.Categorias}>
+        <Stack className={estilos.TipoDePrato}>
+          <Link to="#">
+            <img src="/imagens/cafedamanha.png" alt="Café da manhã" />
+          </Link>
+          <Typography variant="h4">Café da manhã</Typography>
+        </Stack>
+        <Stack className={estilos.TipoDePrato}>
+          <Link to="#">
+            <img src="/imagens/almoco.png" alt="Almoço" />
+          </Link>
+          <Typography variant="h4">Almoço</Typography>
+        </Stack>
+        <Stack className={estilos.TipoDePrato}>
+          <Link to="#">
+            <img src="/imagens/jantar.png" alt="Jantar" />
+          </Link>
+          <Typography variant="h4">Jantar</Typography>
+        </Stack>
+        <Stack className={estilos.TipoDePrato}>
+          <Link to="#">
+            <img src="/imagens/sobremesa.png" alt="Sobremesas" />
+          </Link>
+          <Typography variant="h4">Sobremesas</Typography>
+        </Stack>
+      </Stack>
+      <Stack className={estilos.Links}>
         <h3>Conheça os melhores restaurantes</h3>
-        <p>Clique <Link to='/restaurantes'>aqui</Link></p>
-      </div>
+        <Typography>
+          Clique <Link to="/restaurantes">aqui</Link>
+        </Typography>
+      </Stack>
       <Rodape />
     </>
   );

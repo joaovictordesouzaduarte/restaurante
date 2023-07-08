@@ -14,7 +14,7 @@ schema_view = get_schema_view(
    openapi.Info(
       title="API de restaurantes e pratos",
       default_version='v1',
-      description="Provedor local de restaurantes e pratos desenvolvida pela Alura para o curso de React",
+      description="Provedor local de restaurantes e pratos",
       terms_of_service="#",
       license=openapi.License(name="BSD License"),
    ),

@@ -62,6 +62,7 @@ const ListaRestaurantes = (props: ListaRestaurantesProps) => {
         />
         <InputLabel id="select-ordenacao"></InputLabel>
         <Select
+          label="Teste"
           value={ordenacao}
           sx={{ minWidth: 300, ml: 5 }}
           labelId="select-ordenacao"
